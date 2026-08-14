@@ -2,9 +2,11 @@
 
 [![Laravel Tests](https://github.com/erkankoyun/LARAVEL/actions/workflows/tests.yml/badge.svg)](https://github.com/erkankoyun/LARAVEL/actions/workflows/tests.yml)
 
+**Live Demo:** https://aihan-cafe.vercel.app
+
 A practical Laravel application built as part of my software development portfolio.
 
-AIHAN Cafe demonstrates backend development with MVC architecture, authentication, role-based authorization, database-backed CRUD operations, search and filtering, pagination, JSON API endpoints, Blade views, validation, Docker support, and automated feature testing.
+AIHAN Cafe demonstrates backend development with MVC architecture, authentication, role-based authorization, database-backed CRUD operations, search and filtering, pagination, JSON API endpoints, Blade views, validation, Docker support, automated feature testing, and production deployment.
 
 ## Application Preview
 
@@ -28,6 +30,7 @@ The preview shows the home page, administrator dashboard, product catalog, and p
 - Pest testing framework
 - GitHub Actions
 - Docker / Docker Compose
+- Vercel container deployment
 
 ## Implemented Features
 
@@ -56,6 +59,7 @@ The preview shows the home page, administrator dashboard, product catalog, and p
 - Automated tests for product browsing, search, filtering, pagination, and API responses
 - GitHub Actions continuous integration
 - Docker-based local development setup
+- Production deployment on Vercel
 
 ## Authorization Model
 
@@ -192,9 +196,9 @@ Every push to `main` and every pull request targeting `main` also runs the test 
 
 ## Development Status
 
-**Active development.**
+**Active development and deployed.**
 
-The project currently includes a functional authentication and authorization layer, an administrator dashboard, a polished searchable product catalog, database-backed CRUD management, public read-only API endpoints, Docker support, and automated CI-backed test coverage.
+The project currently includes a functional authentication and authorization layer, an administrator dashboard, a polished searchable product catalog, database-backed CRUD management, public read-only API endpoints, Docker support, automated CI-backed test coverage, and a production live demo.
 
 ### Planned Improvements
 
@@ -204,13 +208,13 @@ The project currently includes a functional authentication and authorization lay
 - Product image uploads
 - Additional API resources
 - Expanded automated tests
-- Production deployment workflow
 
 ## Author
 
 **Erkan Koyun**  
 Software Developer | PHP • Laravel • Python | Backend Development | IT Specialist
 
+- Live Demo: [aihan-cafe.vercel.app](https://aihan-cafe.vercel.app)
 - Portfolio: [erkankoyun.com](https://erkankoyun.com)
 - LinkedIn: [linkedin.com/in/erkan-koyun-6aa709107](https://www.linkedin.com/in/erkan-koyun-6aa709107/)
 - GitHub: [github.com/erkankoyun](https://github.com/erkankoyun)
