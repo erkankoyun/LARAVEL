@@ -28,4 +28,12 @@ RUN mkdir -p storage/framework/cache storage/framework/sessions storage/framewor
     && touch database/database.sqlite \
     && chmod -R 775 storage bootstrap/cache database
 
+ENV APP_ENV=production
+ENV APP_DEBUG=false
+ENV APP_URL=https://aihan-cafe.vercel.app
+ENV LOG_CHANNEL=stderr
+ENV DB_CONNECTION=sqlite
+
+EXPOSE 8000
+
 ENTRYPOINT ["sh", "/var/www/html/docker/entrypoint.sh"]
