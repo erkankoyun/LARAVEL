@@ -32,10 +32,10 @@ class AuthController extends Controller
         $request->session()->regenerate();
 
         if ($request->user()?->is_admin) {
-            return redirect()->intended(route('admin.dashboard', absolute: false));
+            return redirect()->away(route('admin.dashboard', absolute: false));
         }
 
-        return redirect()->intended(route('products.index', absolute: false));
+        return redirect()->away(route('products.index', absolute: false));
     }
 
     public function showRegister(): View
@@ -55,8 +55,7 @@ class AuthController extends Controller
         Auth::login($user);
         $request->session()->regenerate();
 
-        return redirect()->to(route('products.index', absolute: false))
-            ->with('success', 'Account created successfully.');
+        return redirect()->away(route('products.index', absolute: false));
     }
 
     public function logout(Request $request): RedirectResponse
@@ -66,6 +65,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->to(route('home', absolute: false));
+        return redirect()->away(route('home', absolute: false));
     }
 }
