@@ -1,5 +1,7 @@
 # AIHAN Cafe — Laravel Backend Portfolio Project
 
+[![Laravel Tests](https://github.com/erkankoyun/LARAVEL/actions/workflows/tests.yml/badge.svg)](https://github.com/erkankoyun/LARAVEL/actions/workflows/tests.yml)
+
 A practical Laravel application built as part of my software development portfolio.
 
 AIHAN Cafe demonstrates backend development with MVC architecture, authentication, role-based authorization, database-backed CRUD operations, Blade views, validation, responsive interface design, and automated feature testing.
