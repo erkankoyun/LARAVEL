@@ -6,6 +6,12 @@ A practical Laravel application built as part of my software development portfol
 
 AIHAN Cafe demonstrates backend development with MVC architecture, authentication, role-based authorization, database-backed CRUD operations, search and filtering, pagination, JSON API endpoints, Blade views, validation, Docker support, and automated feature testing.
 
+## Application Preview
+
+![AIHAN Cafe application overview](docs/screenshots/aihan-portfolio-overview.jpg)
+
+The preview shows the home page, administrator dashboard, product catalog, and product creation workflow.
+
 ## Current Stack
 
 - PHP 8.2+
