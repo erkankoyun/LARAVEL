@@ -1,19 +1,21 @@
 <x-layout>
     <x-slot:title>Add Product</x-slot:title>
 
-    <div class="max-w-2xl mx-auto">
-        <div class="mb-6">
-            <h1 class="text-3xl font-bold">Add Product</h1>
-            <p class="text-base-content/60 mt-1">Create a new AIHAN Cafe menu item.</p>
+    <div class="product-editor-wrap">
+        <div class="product-editor-head">
+            <div>
+                <span class="admin-kicker">Menu management</span>
+                <h1>Add Product</h1>
+                <p>Create a new AIHAN Cafe menu item and control whether it is available for sale.</p>
+            </div>
+            <a href="{{ route('products.index', absolute: false) }}" class="btnx btnx-outline">Back to Products</a>
         </div>
 
-        <div class="card bg-base-100 shadow">
-            <div class="card-body">
-                <form method="POST" action="{{ route('products.store') }}">
-                    @csrf
-                    @include('products._form', ['submitLabel' => 'Create Product'])
-                </form>
-            </div>
-        </div>
+        <section class="product-editor-card">
+            <form method="POST" action="{{ route('products.store', absolute: false) }}">
+                @csrf
+                @include('products._form', ['submitLabel' => 'Create Product'])
+            </form>
+        </section>
     </div>
 </x-layout>
