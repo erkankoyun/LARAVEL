@@ -5,9 +5,12 @@
         <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-6">
             <div>
                 <h1 class="text-3xl font-bold">Cafe Products</h1>
-                <p class="text-base-content/60 mt-1">Manage menu items stored in the database.</p>
+                <p class="text-base-content/60 mt-1">Browse AIHAN Cafe menu items stored in the database.</p>
             </div>
-            <a href="{{ route('products.create') }}" class="btn btn-primary">Add Product</a>
+
+            @if (auth()->user()?->is_admin)
+                <a href="{{ route('products.create') }}" class="btn btn-primary">Add Product</a>
+            @endif
         </div>
 
         @if (session('success'))
@@ -18,8 +21,11 @@
             <div class="card bg-base-100 shadow">
                 <div class="card-body items-center text-center">
                     <h2 class="card-title">No products yet</h2>
-                    <p>Create your first AIHAN Cafe menu item.</p>
-                    <a href="{{ route('products.create') }}" class="btn btn-primary mt-3">Create Product</a>
+                    <p>The cafe menu is currently empty.</p>
+
+                    @if (auth()->user()?->is_admin)
+                        <a href="{{ route('products.create') }}" class="btn btn-primary mt-3">Create Product</a>
+                    @endif
                 </div>
             </div>
         @else
@@ -30,7 +36,9 @@
                             <th>Name</th>
                             <th>Price</th>
                             <th>Status</th>
-                            <th class="text-right">Actions</th>
+                            @if (auth()->user()?->is_admin)
+                                <th class="text-right">Actions</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -48,17 +56,20 @@
                                         {{ $product->is_available ? 'Available' : 'Unavailable' }}
                                     </span>
                                 </td>
-                                <td>
-                                    <div class="flex justify-end gap-2">
-                                        <a href="{{ route('products.edit', $product) }}" class="btn btn-sm btn-outline">Edit</a>
-                                        <form method="POST" action="{{ route('products.destroy', $product) }}"
-                                              onsubmit="return confirm('Delete this product?')">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-error btn-outline">Delete</button>
-                                        </form>
-                                    </div>
-                                </td>
+
+                                @if (auth()->user()?->is_admin)
+                                    <td>
+                                        <div class="flex justify-end gap-2">
+                                            <a href="{{ route('products.edit', $product) }}" class="btn btn-sm btn-outline">Edit</a>
+                                            <form method="POST" action="{{ route('products.destroy', $product) }}"
+                                                  onsubmit="return confirm('Delete this product?')">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm btn-error btn-outline">Delete</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>
