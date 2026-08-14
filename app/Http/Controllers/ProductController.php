@@ -9,11 +9,25 @@ use Illuminate\View\View;
 
 class ProductController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
-        $products = Product::query()->latest()->get();
+        $search = trim((string) $request->query('search', ''));
+        $availability = (string) $request->query('availability', 'all');
 
-        return view('products.index', compact('products'));
+        $products = Product::query()
+            ->when($search !== '', function ($query) use ($search) {
+                $query->where(function ($query) use ($search) {
+                    $query->where('name', 'like', "%{$search}%")
+                        ->orWhere('description', 'like', "%{$search}%");
+                });
+            })
+            ->when($availability === 'available', fn ($query) => $query->where('is_available', true))
+            ->when($availability === 'unavailable', fn ($query) => $query->where('is_available', false))
+            ->latest()
+            ->paginate(8)
+            ->withQueryString();
+
+        return view('products.index', compact('products', 'search', 'availability'));
     }
 
     public function create(): View
