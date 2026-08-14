@@ -6,7 +6,7 @@
             <div>
                 <span class="admin-kicker">Cafe menu</span>
                 <h1>AIHAN Cafe Products</h1>
-                <p>Browse the database-backed menu and manage product availability from one clean workspace.</p>
+                <p>Browse the database-backed menu, search products and manage availability from one clean workspace.</p>
             </div>
 
             @if (auth()->user()?->is_admin)
@@ -21,14 +21,49 @@
             </div>
         @endif
 
+        <section class="catalog-toolbar">
+            <form method="GET" action="{{ route('products.index', absolute: false) }}" class="catalog-filter-form">
+                <label class="catalog-search">
+                    <span>Search</span>
+                    <input
+                        type="search"
+                        name="search"
+                        value="{{ $search }}"
+                        placeholder="Search by product name or description...">
+                </label>
+
+                <label class="catalog-select">
+                    <span>Availability</span>
+                    <select name="availability">
+                        <option value="all" @selected($availability === 'all')>All products</option>
+                        <option value="available" @selected($availability === 'available')>Available</option>
+                        <option value="unavailable" @selected($availability === 'unavailable')>Unavailable</option>
+                    </select>
+                </label>
+
+                <div class="catalog-filter-actions">
+                    <button type="submit" class="btnx btnx-dark">Apply Filters</button>
+                    @if ($search !== '' || $availability !== 'all')
+                        <a href="{{ route('products.index', absolute: false) }}" class="btnx btnx-outline">Clear</a>
+                    @endif
+                </div>
+            </form>
+        </section>
+
         @if ($products->isEmpty())
             <section class="admin-panel">
                 <div class="admin-empty">
                     <div class="admin-empty-icon">☕</div>
-                    <h3>No products yet</h3>
-                    <p>The cafe menu is currently empty. Add the first product to start building the catalog.</p>
+                    <h3>{{ $search !== '' || $availability !== 'all' ? 'No matching products' : 'No products yet' }}</h3>
+                    <p>
+                        {{ $search !== '' || $availability !== 'all'
+                            ? 'Try changing or clearing the current filters.'
+                            : 'The cafe menu is currently empty. Add the first product to start building the catalog.' }}
+                    </p>
 
-                    @if (auth()->user()?->is_admin)
+                    @if ($search !== '' || $availability !== 'all')
+                        <a href="{{ route('products.index', absolute: false) }}" class="btnx btnx-outline">Clear Filters</a>
+                    @elseif (auth()->user()?->is_admin)
                         <a href="{{ route('products.create', absolute: false) }}" class="btnx btnx-primary">Create First Product</a>
                     @endif
                 </div>
@@ -39,7 +74,10 @@
                     <div>
                         <span class="admin-panel-eyebrow">Inventory</span>
                         <h2>Product Catalog</h2>
-                        <p>{{ $products->count() }} {{ \Illuminate\Support\Str::plural('item', $products->count()) }} currently stored in the menu database.</p>
+                        <p>
+                            Showing {{ $products->firstItem() }}–{{ $products->lastItem() }} of {{ $products->total() }}
+                            {{ \Illuminate\Support\Str::plural('item', $products->total()) }}.
+                        </p>
                     </div>
                 </div>
 
@@ -90,6 +128,24 @@
                         </tbody>
                     </table>
                 </div>
+
+                @if ($products->hasPages())
+                    <div class="catalog-pagination">
+                        @if ($products->onFirstPage())
+                            <span class="btnx btnx-outline is-disabled">Previous</span>
+                        @else
+                            <a href="{{ $products->previousPageUrl() }}" class="btnx btnx-outline">Previous</a>
+                        @endif
+
+                        <span class="catalog-page-status">Page {{ $products->currentPage() }} of {{ $products->lastPage() }}</span>
+
+                        @if ($products->hasMorePages())
+                            <a href="{{ $products->nextPageUrl() }}" class="btnx btnx-outline">Next</a>
+                        @else
+                            <span class="btnx btnx-outline is-disabled">Next</span>
+                        @endif
+                    </div>
+                @endif
             </section>
         @endif
     </div>
