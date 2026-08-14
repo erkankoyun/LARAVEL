@@ -25,7 +25,8 @@ class ProductController extends Controller
     {
         Product::create($this->validatedData($request));
 
-        return redirect()->away(route('products.index', absolute: false));
+        return redirect()->away(route('products.index', absolute: false))
+            ->with('success', 'Product created successfully.');
     }
 
     public function edit(Product $product): View
@@ -37,14 +38,16 @@ class ProductController extends Controller
     {
         $product->update($this->validatedData($request));
 
-        return redirect()->away(route('products.index', absolute: false));
+        return redirect()->away(route('products.index', absolute: false))
+            ->with('success', 'Product updated successfully.');
     }
 
     public function destroy(Product $product): RedirectResponse
     {
         $product->delete();
 
-        return redirect()->away(route('products.index', absolute: false));
+        return redirect()->away(route('products.index', absolute: false))
+            ->with('success', 'Product deleted successfully.');
     }
 
     private function validatedData(Request $request): array
