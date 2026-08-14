@@ -10,16 +10,26 @@ class DatabaseSeeder extends Seeder
 {
     use WithoutModelEvents;
 
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $email = env('ADMIN_EMAIL');
+        $password = env('ADMIN_PASSWORD');
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        if (! $email || ! $password) {
+            $this->command?->warn('ADMIN_EMAIL and ADMIN_PASSWORD are not set. Admin user was not created.');
+
+            return;
+        }
+
+        User::updateOrCreate(
+            ['email' => $email],
+            [
+                'name' => env('ADMIN_NAME', 'AIHAN Admin'),
+                'password' => $password,
+                'is_admin' => true,
+            ],
+        );
+
+        $this->command?->info('Administrator account is ready.');
     }
 }
