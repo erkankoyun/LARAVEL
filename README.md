@@ -2,7 +2,7 @@
 
 A practical Laravel application built as part of my software development portfolio.
 
-AIHAN Cafe demonstrates backend development with MVC architecture, authentication, role-based authorization, database-backed CRUD operations, Blade views, validation, and automated feature testing.
+AIHAN Cafe demonstrates backend development with MVC architecture, authentication, role-based authorization, database-backed CRUD operations, Blade views, validation, responsive interface design, and automated feature testing.
 
 ## Current Stack
 
@@ -35,8 +35,10 @@ AIHAN Cafe demonstrates backend development with MVC architecture, authenticatio
 - Server-side form validation
 - Reusable Blade layout and views
 - Responsive navigation based on authentication state
+- Professional admin dashboard and product catalog UI
 - Admin dashboard statistics
 - Automated feature tests for authorization behavior
+- Automated CRUD tests for product creation, updating, deletion, validation, and access control
 
 ## Authorization Model
 
@@ -118,13 +120,13 @@ Run the automated test suite with:
 php artisan test
 ```
 
-The feature tests verify that public users can browse products, guests are redirected from management routes, regular users are denied administrator access, and administrator accounts can access protected management pages.
+The feature tests cover public product browsing, guest redirects, administrator authorization, product creation, updating, deletion, validation, and protection against unauthorized product changes.
 
 ## Development Status
 
 **Active development.**
 
-The project currently includes a functional authentication and authorization layer, an administrator dashboard, and database-backed product management.
+The project currently includes a functional authentication and authorization layer, an administrator dashboard, a polished product catalog, database-backed product management, and automated feature coverage for the core CRUD workflow.
 
 ### Planned Improvements
 
