@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="/css/site.css">
     <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/products.css">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
