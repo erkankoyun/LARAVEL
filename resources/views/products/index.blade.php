@@ -39,7 +39,7 @@
                     <div>
                         <span class="admin-panel-eyebrow">Inventory</span>
                         <h2>Product Catalog</h2>
-                        <p>{{ $products->count() }} {{ Str::plural('item', $products->count()) }} currently stored in the menu database.</p>
+                        <p>{{ $products->count() }} {{ \Illuminate\Support\Str::plural('item', $products->count()) }} currently stored in the menu database.</p>
                     </div>
                 </div>
 
