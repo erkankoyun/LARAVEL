@@ -9,7 +9,7 @@
             </div>
 
             @if (auth()->user()?->is_admin)
-                <a href="{{ route('products.create') }}" class="btn btn-primary">Add Product</a>
+                <a href="{{ route('products.create', absolute: false) }}" class="btn btn-primary">Add Product</a>
             @endif
         </div>
 
@@ -24,7 +24,7 @@
                     <p>The cafe menu is currently empty.</p>
 
                     @if (auth()->user()?->is_admin)
-                        <a href="{{ route('products.create') }}" class="btn btn-primary mt-3">Create Product</a>
+                        <a href="{{ route('products.create', absolute: false) }}" class="btn btn-primary mt-3">Create Product</a>
                     @endif
                 </div>
             </div>
@@ -60,8 +60,8 @@
                                 @if (auth()->user()?->is_admin)
                                     <td>
                                         <div class="flex justify-end gap-2">
-                                            <a href="{{ route('products.edit', $product) }}" class="btn btn-sm btn-outline">Edit</a>
-                                            <form method="POST" action="{{ route('products.destroy', $product) }}"
+                                            <a href="{{ route('products.edit', $product, absolute: false) }}" class="btn btn-sm btn-outline">Edit</a>
+                                            <form method="POST" action="{{ route('products.destroy', $product, absolute: false) }}"
                                                   onsubmit="return confirm('Delete this product?')">
                                                 @csrf
                                                 @method('DELETE')
