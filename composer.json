@@ -1,11 +1,16 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "erkankoyun/aihan-cafe",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "AIHAN Cafe is a Laravel backend portfolio application demonstrating authentication, admin authorization, product CRUD, validation, Eloquent ORM, and automated testing.",
     "keywords": [
         "laravel",
-        "framework"
+        "php",
+        "backend",
+        "portfolio",
+        "crud",
+        "authentication",
+        "authorization"
     ],
     "license": "MIT",
     "require": {
