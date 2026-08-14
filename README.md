@@ -1,8 +1,8 @@
 # AIHAN Cafe — Laravel Backend Portfolio Project
 
-A Laravel application built as part of my backend development practice and software portfolio.
+A practical Laravel application built as part of my software development portfolio.
 
-AIHAN Cafe demonstrates practical Laravel development with MVC architecture, authentication, role-based authorization, database-backed CRUD operations, Blade components, validation, and automated feature testing.
+AIHAN Cafe demonstrates backend development with MVC architecture, authentication, role-based authorization, database-backed CRUD operations, Blade views, validation, and automated feature testing.
 
 ## Current Stack
 
@@ -36,7 +36,7 @@ AIHAN Cafe demonstrates practical Laravel development with MVC architecture, aut
 - Reusable Blade layout and views
 - Responsive navigation based on authentication state
 - Admin dashboard statistics
-- Feature tests for admin authorization
+- Automated feature tests for authorization behavior
 
 ## Authorization Model
 
@@ -49,7 +49,7 @@ Only users marked as administrators can:
 - Edit products
 - Delete products
 
-Administrative routes are protected by both Laravel's `auth` middleware and a custom `admin` middleware.
+Administrative routes are protected by Laravel's `auth` middleware together with a custom `admin` middleware.
 
 ## Local Setup
 
@@ -74,7 +74,7 @@ php artisan migrate
 
 ### Create the Administrator Account
 
-Add administrator credentials to your local `.env` file. Do not commit real passwords to GitHub.
+Add administrator credentials to your local `.env` file. Never commit real passwords or secrets to GitHub.
 
 ```env
 ADMIN_NAME="AIHAN Admin"
@@ -124,7 +124,7 @@ The feature tests verify that public users can browse products, guests are redir
 
 **Active development.**
 
-The project now includes a functional authentication and authorization layer plus database-backed product management. Future improvements will continue to focus on production-style backend development.
+The project currently includes a functional authentication and authorization layer, an administrator dashboard, and database-backed product management.
 
 ### Planned Improvements
 
@@ -134,18 +134,20 @@ The project now includes a functional authentication and authorization layer plu
 - Image uploads
 - Search and filtering
 - Pagination
-- More automated tests
+- Expanded automated tests
 - Docker-based development environment
 - Deployment workflow
 
 ## Author
 
 **Erkan Koyun**  
-PHP / Laravel Backend Developer | IT Specialist
+Software Developer | PHP • Laravel • Python | Backend Development | IT Specialist
 
+- Portfolio: [erkankoyun.com](https://erkankoyun.com)
+- LinkedIn: [linkedin.com/in/erkan-koyun-6aa709107](https://www.linkedin.com/in/erkan-koyun-6aa709107/)
 - GitHub: [github.com/erkankoyun](https://github.com/erkankoyun)
-- Email: erkankoyun@erkankoyun.com
+- Email: [erkankoyun@erkankoyun.com](mailto:erkankoyun@erkankoyun.com)
 
 ---
 
-This repository is part of my ongoing software development portfolio and documents my progress building practical applications with Laravel and modern PHP.
+**Building reliable web applications and backend systems.**
