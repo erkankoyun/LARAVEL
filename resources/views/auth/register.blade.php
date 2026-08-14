@@ -7,7 +7,7 @@
                 <h1 class="card-title text-2xl">Create Account</h1>
                 <p class="text-base-content/60">Register for an AIHAN Cafe account.</p>
 
-                <form method="POST" action="{{ route('register.store') }}" class="space-y-4 mt-4">
+                <form method="POST" action="{{ route('register.store', absolute: false) }}" class="space-y-4 mt-4">
                     @csrf
 
                     <label class="form-control w-full">
@@ -46,7 +46,7 @@
                 </form>
 
                 <div class="divider">OR</div>
-                <a href="{{ route('login') }}" class="btn btn-outline w-full">Sign In</a>
+                <a href="{{ route('login', absolute: false) }}" class="btn btn-outline w-full">Sign In</a>
             </div>
         </div>
     </div>
