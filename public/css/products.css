@@ -1,0 +1,139 @@
+/* Professional product catalog */
+.product-list-wrap {
+    display: grid;
+    gap: 22px;
+}
+
+.product-list-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.product-list-head h1 {
+    margin: 7px 0 0;
+    color: #0f172a;
+    font-size: clamp(30px, 4vw, 42px);
+    line-height: 1.08;
+    letter-spacing: -.04em;
+}
+
+.product-list-head p {
+    max-width: 720px;
+    margin: 10px 0 0;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.product-success {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 14px 16px;
+    border: 1px solid #bbf7d0;
+    border-radius: 14px;
+    background: #f0fdf4;
+    color: #166534;
+    font-size: 13px;
+}
+
+.product-success > span {
+    width: 26px;
+    height: 26px;
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    background: #dcfce7;
+    font-weight: 900;
+}
+
+.product-catalog-panel {
+    overflow: hidden;
+}
+
+.product-table td:first-child {
+    min-width: 280px;
+    white-space: normal;
+}
+
+.product-name {
+    color: #0f172a;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.product-description {
+    max-width: 520px;
+    margin-top: 5px;
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+.product-price {
+    color: #0f172a;
+    font-weight: 800;
+}
+
+.status-pill {
+    gap: 7px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    display: inline-block;
+    border-radius: 999px;
+    background: #94a3b8;
+}
+
+.status-pill-live .status-dot {
+    background: #10b981;
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, .10);
+}
+
+.product-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.product-actions form {
+    margin: 0;
+}
+
+.product-delete-btn {
+    min-height: 40px;
+    border-color: #fecaca;
+    background: #fff;
+    color: #b91c1c;
+}
+
+.product-delete-btn:hover {
+    border-color: #fca5a5;
+    background: #fef2f2;
+}
+
+@media (max-width: 720px) {
+    .product-list-head {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .product-list-head .btnx {
+        width: 100%;
+    }
+
+    .product-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .product-actions .btnx {
+        width: 100%;
+    }
+}
