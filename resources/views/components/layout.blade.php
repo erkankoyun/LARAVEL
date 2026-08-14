@@ -15,11 +15,30 @@
 <body class="min-h-screen flex flex-col bg-base-200 font-sans">
     <nav class="navbar bg-base-100 shadow-sm">
         <div class="navbar-start">
-            <a href="/" class="btn btn-ghost text-xl">🐦 AIHAN</a>
+            <a href="{{ route('home') }}" class="btn btn-ghost text-xl">🐦 AIHAN</a>
         </div>
+
         <div class="navbar-end gap-2">
             <a href="{{ route('products.index') }}" class="btn btn-ghost btn-sm">Products</a>
-            <a href="{{ route('products.create') }}" class="btn btn-primary btn-sm">Add Product</a>
+
+            @auth
+                @if (auth()->user()->is_admin)
+                    <a href="{{ route('admin.dashboard') }}" class="btn btn-ghost btn-sm">Admin</a>
+                    <a href="{{ route('products.create') }}" class="btn btn-primary btn-sm">Add Product</a>
+                @endif
+
+                <div class="hidden sm:block text-sm text-base-content/60 px-2">
+                    {{ auth()->user()->name }}
+                </div>
+
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="btn btn-outline btn-sm">Sign Out</button>
+                </form>
+            @else
+                <a href="{{ route('login') }}" class="btn btn-ghost btn-sm">Sign In</a>
+                <a href="{{ route('register') }}" class="btn btn-primary btn-sm">Sign Up</a>
+            @endauth
         </div>
     </nav>
 
