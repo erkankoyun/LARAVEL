@@ -1,52 +1,87 @@
-# AIHAN Cafe — Laravel Starter Application
+# AIHAN Cafe — Laravel Backend Practice Project
 
-A Laravel-based web application created as part of my backend development practice and portfolio work.
+A Laravel application built as part of my backend development practice and software portfolio.
 
-This repository demonstrates my current Laravel workflow, Blade templating, routing, project structure, and frontend integration. The application is intentionally small and is being used as a foundation for continued Laravel development.
+The project is intentionally being developed step by step to strengthen practical skills in modern PHP, Laravel architecture, Blade templating, routing, database-driven development, testing, and deployment workflows.
 
-## Current Features
+## Current Stack
 
-- Laravel application structure
-- Custom home route
-- Blade templates and reusable components
-- Tailwind CSS based styling
-- Vite frontend build setup
-- Environment-based configuration
-
-## Tech Stack
-
-- PHP
-- Laravel
+- PHP 8.2+
+- Laravel 12
 - Blade
-- Tailwind CSS
-- Vite
+- Tailwind CSS 4
+- Vite 7
+- JavaScript
 - Composer
 - Node.js / npm
+- Laravel database tooling
+- Pest testing framework
 
-## Project Structure
+## Current Implementation
 
-The application currently includes a custom home page and reusable Blade layout/components. The main route is defined in `routes/web.php` and renders the `home` view.
+The repository currently includes:
+
+- Laravel 12 application structure
+- Custom home route
+- Custom `home.blade.php` view
+- Reusable Blade components
+- AIHAN Cafe landing page
+- Tailwind CSS integration
+- Vite frontend build configuration
+- Environment-based configuration
+- Laravel migration and seeding structure
+- Pest/Laravel testing dependencies
+
+## Development Goals
+
+This project is being expanded to demonstrate practical backend development skills, including:
+
+- MVC architecture
+- Routing and controllers
+- Blade templates and reusable components
+- Database design and Eloquent ORM
+- CRUD operations
+- Form validation
+- Authentication and authorization
+- REST-style API development
+- Automated testing
+- Docker and deployment workflows
 
 ## Local Setup
+
+### Requirements
+
+- PHP 8.2 or newer
+- Composer
+- Node.js and npm
+
+### Installation
 
 ```bash
 git clone https://github.com/erkankoyun/LARAVEL.git
 cd LARAVEL
 composer install
-npm install
 cp .env.example .env
 php artisan key:generate
+php artisan migrate
+npm install
 npm run build
 php artisan serve
 ```
 
-Then open the local Laravel development URL shown in the terminal.
+For the full development workflow, the project also provides:
 
-## Status
+```bash
+composer run dev
+```
 
-**In development.**
+## Development Status
 
-Planned improvements include:
+**Active development.**
+
+The current version is an early-stage Laravel application. Additional backend functionality will be added as the project develops.
+
+### Planned Improvements
 
 - Database-backed models
 - Authentication
@@ -59,9 +94,11 @@ Planned improvements include:
 ## Author
 
 **Erkan Koyun**  
-PHP / Laravel Backend Developer  
-GitHub: [github.com/erkankoyun](https://github.com/erkankoyun)
+PHP / Laravel Backend Developer | IT Specialist
+
+- GitHub: [github.com/erkankoyun](https://github.com/erkankoyun)
+- Email: erkankoyun@erkankoyun.com
 
 ---
 
-This repository is part of my ongoing software development portfolio and reflects my current Laravel learning and development work.
+This repository is part of my ongoing software development portfolio and documents my progress building practical applications with Laravel and modern PHP.
