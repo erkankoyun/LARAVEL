@@ -12,12 +12,12 @@
                         admin tools, validation, Eloquent ORM, and full product CRUD workflows.
                     </p>
                     <div class="flex flex-wrap justify-center gap-3">
-                        <a href="{{ route('products.index') }}" class="btn btn-primary">Browse Menu</a>
+                        <a href="{{ route('products.index', absolute: false) }}" class="btn btn-primary">Browse Menu</a>
                         @guest
-                            <a href="{{ route('register') }}" class="btn btn-outline">Create Account</a>
+                            <a href="{{ route('register', absolute: false) }}" class="btn btn-outline">Create Account</a>
                         @endguest
                         @if (auth()->user()?->is_admin)
-                            <a href="{{ route('admin.dashboard') }}" class="btn btn-outline">Open Admin Dashboard</a>
+                            <a href="{{ route('admin.dashboard', absolute: false) }}" class="btn btn-outline">Open Admin Dashboard</a>
                         @endif
                     </div>
                 </div>
